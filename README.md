@@ -6,7 +6,7 @@ This project shows how to collect, work with, and clean a data set. It is about 
 The data linked below represent data collected from the accelerometers from the Samsung Galaxy S smartphone
 <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
 
-A full description is available at the site where the data was obtained:
+A full description is available at the site where the data was obtained
 <http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones>
 
 
@@ -76,8 +76,7 @@ The code book file describes the variables, the data, and any transformations an
 
 ---
 ### Details of tidy Dataset file *tidydata.txt*
-This is the tidy data file created after after running `run_analysis.R` script on the original data downloaded from   
-this [URL](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) 
+This is the tidy data file created after after running `run_analysis.R` script on the original data downloaded from this [URL](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) 
 
 
 #### The tidy dataset contains:  

@@ -1,5 +1,3 @@
-
-
 # Download the zipfile and put it in the directoty "data" 
 if(!file.exists("./data")){dir.create("./data")}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -58,7 +56,6 @@ mean_std_Data$activity <- as.character(mean_std_Data$activity)
 mean_std_Data$activity <- activityLabels[mean_std_Data$activity, 2]
 
 
-
 ## STEP 4 - Appropriately labels the data set with descriptive variable names
 
 # prefix t is replaced by time
@@ -89,6 +86,3 @@ mean_std_Data2 <- mean_std_Data2[order(mean_std_Data2$subject, mean_std_Data2$ac
 
 # write the tidy data set into "tidydata.txt" that contains the processed data
 write.table(mean_std_Data2, file = "tidydata.txt",row.name=FALSE)
-
-
-

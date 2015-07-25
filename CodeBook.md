@@ -1,27 +1,21 @@
 CodeBook
 ===================
 
-Course Project for Gettting and Cleaning Data based on Human Activity Recognition Using Smartphones Dataset  
+Course Project for Gettting and Cleaning Data based on Human Activity Recognition Using Smartphones Dataset.  
 
 This CodeBook that describes the variables, the data, and any transformations or work that was performed to clean up  
 the source data to create a tidy dataset as per requirements of course project.
 
 ---
-### Information about Source Data Experment
+### Information about Source Data Experiment
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years.  
-Each person performed six activities `(WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)` wearing   
-a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial   
-linear acceleration and 3-axial angular velocity at a constant rate of 50Hz.   
-The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned   
-into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.   
-
+Each person performed six activities `(WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)` wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz.
+The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.   
 
 ---
 ### Original Data Source
 Human Activity Recognition Using Smartphones Dataset.    
 Data for analysis is downloaded from [URL](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
-
-
 
 ---
 ### Structure of Data present in source data folders
@@ -37,13 +31,10 @@ Data for analysis is downloaded from [URL](https://d396qusza40orc.cloudfront.net
 - `test/y_test.txt`: Test activity Id Labels
 - `test/subject_train.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-
 The following files are available for the train and test data. Their descriptions are equivalent. 
 
-- `train/Inertial Signals/total_acc_x_train.txt`: The acceleration signal from the smartphone accelerometer X axis in   standard gravity units `g`. Every row shows a 128 element vector. The same description applies for the   
-`total_acc_x_train.txt` and `total_acc_z_train.txt` files for the Y and Z axis. 
-- `train/Inertial Signals/body_acc_x_train.txt`: The body acceleration signal obtained by subtracting the gravity from   
-the total acceleration. 
+- `train/Inertial Signals/total_acc_x_train.txt`: The acceleration signal from the smartphone accelerometer X axis in   standard gravity units `g`. Every row shows a 128 element vector. The same description applies for the `total_acc_x_train.txt` and `total_acc_z_train.txt` files for the Y and Z axis. 
+- `train/Inertial Signals/body_acc_x_train.txt`: The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 - `train/Inertial Signals/body_gyro_x_train.txt`: The angular velocity vector measured by the gyroscope for each window   sample. The units are radians/second.
 
 **Note:** All the files in `train/Inertial Signals` and `test/Inertial Signals` will not be used for in this analysis
@@ -71,7 +62,7 @@ the total acceleration.
 
 
 ---
-### Requirements & Details of Transformations through `run_analysis.R` script
+### Requirements and Details of Transformations through `run_analysis.R` script
 #### Requirements
 `run_analysis.R` script has the following requirements to perform transformation on UCI HAR Dataset.
 
@@ -81,14 +72,11 @@ the total acceleration.
 4. Appropriately labels the data set with descriptive activity names. 
 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-
-#### Detailed Functions of `run_analysis.R` Script
+#### Detailed Functions of `run_analysis.R` script
 - Downloads the dataset from the URL mentioned above and unzips it to create UCI HAR Dataset folder
-- Imports "test" and "train" datsets and creates data frames from then and then Merges the training and the test sets  
-to create one data frame.
-- Extracts a subset of data with only the measurements on the mean "mean()" and standard deviation "std()" for each  measurement. Also excludes meanFreq()-X measurements or angle measurements where the term mean exists resulting in  
-66 measurement variables.
-- Appropriately labels the data set with descriptive activity names in place of activity Ids
+- Imports "test" and "train" datsets and creates data frames from then and then Merges the training and the test sets to create one data frame.
+- Extracts a subset of data with only the measurements on the mean "mean()" and standard deviation "std()" for each  measurement. Also excludes meanFreq()-X measurements or angle measurements where the term mean exists resulting in 66 measurement variables.
+- Appropriately labels the data set with descriptive activity names in place of activity numbers
 - Updates the variable names in dataframe variable names for data fame to improve readibility
 - Reshapes dataset to create a data frame with average of each measurement variable for each activity and each subject
 - Writes new tidy data frame to a text file to create the required tidy data set file of 180 observations and 68 columns 
@@ -97,7 +85,6 @@ to create one data frame.
 ---
 ## Transformations performed on the original dataset. 
 
-
 ### Merging the training and the test sets to create one data set.
 
 #### Activities:
@@ -105,7 +92,7 @@ to create one data frame.
 - Script imports `test` and `train` datsets and creates data frames from then and then merges the training and the test sets to create one data frame.
 
 
-All files to be used as listed above are imported to created data frames and column variables names are updated as follows:
+All files to be used as listed above are imported to created data frames and column variables names are updated as follows
 
 data frame | source file 
 --- | ---
@@ -133,9 +120,7 @@ data frame | variable names
 
 
 #### Merge Activities
-`dataFeatures`, `dataSubject`, `dataActivity` have been binded by `cbind`  function to create final aggregated dataset/data frame `Data` with `10299` rows and `563` columns
-
-Below code shows few details of `Data`
+`dataFeatures`, `dataSubject`, `dataActivity` have been binded by `cbind`  function to create final aggregated dataset/data frame `Data` with `10299` rows and `563` columns. The code below shows few details of `Data`
 ```
 > head(Data[1:5])
   tBodyAcc-mean()-X tBodyAcc-mean()-Y tBodyAcc-mean()-Z tBodyAcc-std()-X tBodyAcc-std()-Y
@@ -147,9 +132,6 @@ Below code shows few details of `Data`
 6         0.2771988       -0.01009785        -0.1051373       -0.9973350       -0.9904868
 > 
 
-
-
-
 > dim(Data)
 [1] 10299   563
 ```
@@ -158,19 +140,15 @@ Below code shows few details of `Data`
 ### Extraction of only the measurements on the mean and standard deviation for each measurement.
 
 #### Activities:
-- Extract a subset of data with only the measurements on the *mean* `mean()` and *standard deviation* `std()` for  
-each measurement 
+- Extract a subset of data with only the measurements on the *mean* `mean()` and *standard deviation* `std()` for each measurement.
 
 #### Extraction of selected measurement values
-- `grep` functions are used to search for occurance of *mean* `mean()` and *standard deviation* `std()` in `Data`   
-variable Names using escape characters.  
-- Using escape characters to search exactly for `mean()` and `std()` occurance helps to exclude `meanFreq()-X` measurements  
-and/or angle measurements where the term `mean` exists  
-- In order to extract a subset of only measurements on the *mean* `mean()` and *standard deviation* `std()` `grep` is used  
-to create index of matched column numbers. 
+- `grep` functions are used to search for occurance of *mean* `mean()` and *standard deviation* `std()` in `Data` variable Names using escape characters.  
+- Using escape characters to search exactly for `mean()` and `std()` occurance helps to exclude `meanFreq()-X` measurements and/or angle measurements where the term `mean` exists. 
+- In order to extract a subset of only measurements on the *mean* `mean()` and *standard deviation* `std()` `grep` is used to create index of matched column numbers. 
 - The resulting selection would have only `66` measurement variables.
 
-Below code shows search using `grep` functions in column names of `Data` data frame.
+The code below shows search using `grep` functions in column names of `Data` data frame.
 ```
 > dataFeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", dataFeaturesNames$V2)]
  [1] tBodyAcc-mean()-X           tBodyAcc-mean()-Y           tBodyAcc-mean()-Z          
@@ -208,9 +186,8 @@ This stage crates a data frame `mean_std_Data` of `10299` observations and `68` 
 #### Activities:
 - Update the variable names in dataframe to improve readibility
 
-
 #### Variable Transformation activities
-- Read the activity labels from activity_labels.txt and replace the numbers with the names
+- Read the activity labels from activity_labels.txt and replace the numbers with the names.
 Follows the result for the first 30 activity observations
 
 ```
@@ -222,7 +199,7 @@ Levels: LAYING SITTING STANDING WALKING WALKING_DOWNSTAIRS WALKING_UPSTAIRS
 > 
 ```
 
-- by `gsub` function suffixes and abbreaviations are replaced with extended names to make the features better readable
+- by `gsub` function suffixes and abbreaviations are replaced with extended names to make the features better readable.
 
 intitial  | replaced by 
 --- | ---
@@ -234,7 +211,9 @@ intitial  | replaced by
 `BodyBody`    | `Body` 
 
 
-Below code shows the changes in variable names after cleaning up variable names.
+The code below shows the changes in variable names after cleaning up variable names.
+
+```
 > names(mean_std_Data)
  [1] "timeBodyAccelerometer-mean()-X"                
  [2] "timeBodyAccelerometer-mean()-Y"                
@@ -305,37 +284,30 @@ Below code shows the changes in variable names after cleaning up variable names.
 [67] "subject"                                       
 [68] "activity"
 
-
 > dim(mean_std_Data)
 [1] 10299    68
 
 ```
-
-#### Final Dataset `finalData`
+#### Final Dataset `mean_std_Data`
 - This data frame has `10299` observations and `68` columns. 
-- `2` columns for  `"activity"` and `"subject" and 66 comumns for measurement variables with measurements  
-on the `mean()` and `std()`
-
-
-
+- `2` columns for  `"activity"` and `"subject" and 66 comumns for measurement variables with measurements on the `mean()` and `std()`
 
 ---
 ### Tidy Data Set with the average of each variable for each activity and each subject
 
 #### Activities:
-- Reshape dataset to create a data frame with average of each measurement variable for each activity and each subject
-- Writes new tidy data frame to a text file to create the required tidy data
+- Reshape dataset to create a data frame with average of each measurement variable for each activity and each subject.
+- Writes new tidy data frame to a text file to create the required tidy data.
 
 #### Transformation Details
-- using the function `aggregate()` whit the grouping argument `subject + activity` a new data frame named `mean_std_Data2`, compliant with the request, is obtained 
-- finally, the data frame is ordered based on subject and activity variables
+- using the function `aggregate()` whit the grouping argument `subject + activity` a new data frame named `mean_std_Data2`, compliant with the request, is obtained. 
+- finally, the data frame is ordered based on subject and activity variables.
 
 #### 
-The below code shows data transformation done by using `aggregate` and `order` functions to create final data frame
+The code below shows data transformation done by using `aggregate` and `order` functions to create final data frame
 ```
 > mean_std_Data2 <- aggregate(. ~subject + activity, mean_std_Data, mean)
 > mean_std_Data2 <- mean_std_Data2[order(mean_std_Data2$subject, mean_std_Data2$activity),]
-
 
 > head(mean_std_Data2[1:7])
     subject           activity timeBodyAccelerometer-mean()-X timeBodyAccelerometer-mean()-Y
@@ -356,12 +328,10 @@ The below code shows data transformation done by using `aggregate` and `order` f
 ```
 
 #### Tidy data frame
-- This data frame has `180` observations/rows and `68` columns/variables
-- `68` columns(`2` columns for `activity` and `subject` and `66` columns for measurement variables) 
+- This data frame has `180` observations/rows and `68` columns/variables (`2` columns for `activity` and `subject` and `66` columns for measurement variables). 
 - Each measurement variable columns `[3 to 68]` is average value for each combination of `subjectId` and `activityName`
 
 
 #### Tidy Data File
-- The `mean_std_Data2` data frame is written to a file using `write.table` to create `tidydata.txt` file
-- By default column names are kept in file. Row Names have to be explicity excluded using `row.names=FALSE` argument  
-in `write.table` function
+- The `mean_std_Data2` data frame is written to a file using `write.table` to create `tidydata.txt` file.
+- By default column names are kept in file. Row Names have to be explicity excluded using `row.names=FALSE` argument in `write.table()` function.
